@@ -5,6 +5,7 @@ export const RecipeContext = React.createContext()
 
 export const RecipeProvider =  (props) =>{
     const [recipes, setRecipes] = useState([])
+    const [userRecipes, setUserRecipes] = useState([])
 
 
     const getAllRecipes = () =>{
@@ -29,9 +30,20 @@ export const RecipeProvider =  (props) =>{
             .then(getAllRecipes)
     }
 
+    const getSingleUserRecipes = (user_id) => {
+        return fetch(`http://localhost:8000/recipes?user=${user_id}`,{
+            headers:{
+                "Authorization": `Token ${localStorage.getItem("cbuser")}`
+            }})
+            .then(res => res.json())
+            .then(setUserRecipes)
+    }
+
+    
+
     return(
         <RecipeContext.Provider value ={{
-            recipes, getAllRecipes, createRecipe
+            recipes, getAllRecipes, createRecipe, getSingleUserRecipes, userRecipes
         }}>
             {props.children}
         </RecipeContext.Provider>
