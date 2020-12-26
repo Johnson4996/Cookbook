@@ -7,6 +7,7 @@ import { CategoryProvider } from "./categories/CategoryProvider"
 import { UserProvider } from "./users/UserProvider"
 import { ProfileInfo } from "./profile/ProfileInfo"
 import { FavoritesProvider } from "./favorites/FavoritesProvider"
+import { RecipeDetails } from "./recipes/RecipeDetails"
 
 
 
@@ -39,6 +40,11 @@ export const ApplicationViews = () => {
                     <Route exact path="/user/:id(\d+)" render={(props) => {
                         return <>
                             <ProfileInfo {...props} />
+                        </>
+                    }} />
+                    <Route exact path="/recipe/:recipe_id(\d+)" render={(props) => {
+                        return <>
+                            <RecipeDetails {...props} />
                         </>
                     }} />
                 </UserProvider>

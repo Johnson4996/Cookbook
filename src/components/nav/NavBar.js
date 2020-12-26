@@ -16,13 +16,13 @@ const NavBar = ({toggle}) => {
                     <MobileIcon onClick={()=> toggle()}><FaBars /></MobileIcon>
                     <NavMenu>
                         <NavItem>
-                            <NavLinks to="/recipes/create">Create</NavLinks>
+                            <NavLinks to="/recipe/create">Create</NavLinks>
                         </NavItem>
                         <NavItem>
-                            <NavLinks to="/recipes/search">Search</NavLinks>
+                            <NavLinks to="/recipe/search">Search</NavLinks>
                         </NavItem>
                         <NavItem>
-                            <NavLinks to="/profile">Profile</NavLinks>
+                            <NavLinks to="/my-profile">Profile</NavLinks>
                         </NavItem>
                         <NavItem>
                             <NavLinks to="/logout">Logout</NavLinks>
