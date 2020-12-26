@@ -4,7 +4,7 @@ import { Nav, NavbarContainer, NavLogo ,MobileIcon, NavMenu, NavItem, NavLinks }
 
 
 
-const NavBar = ({toggle}) => {
+const NavBar = ({history,toggle}) => {
 
     
 
@@ -16,16 +16,16 @@ const NavBar = ({toggle}) => {
                     <MobileIcon onClick={()=> toggle()}><FaBars /></MobileIcon>
                     <NavMenu>
                         <NavItem>
-                            <NavLinks to="/recipe/create">Create</NavLinks>
+                            <NavLinks onClick={()=>history.push('/recipe/new')}>Create</NavLinks>
                         </NavItem>
                         <NavItem>
-                            <NavLinks to="/recipe/search">Search</NavLinks>
+                            <NavLinks onClick={()=>history.push('/recipe/search')}>Search</NavLinks>
                         </NavItem>
                         <NavItem>
-                            <NavLinks to="/my-profile">Profile</NavLinks>
+                            <NavLinks onClick={()=>history.push('/my-profile')}>Profile</NavLinks>
                         </NavItem>
                         <NavItem>
-                            <NavLinks to="/logout">Logout</NavLinks>
+                            <NavLinks onClick={()=>history.push('/logout')}>Logout</NavLinks>
                         </NavItem>
                     </NavMenu>
                 </NavbarContainer>

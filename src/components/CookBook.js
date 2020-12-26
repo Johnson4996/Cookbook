@@ -21,8 +21,8 @@ export const CookBook = (props) => {
         <Route render={(props) => {
             if (localStorage.getItem("cbuser")) {
                 return <>
-                    <NavBar toggle={toggle}/>
-                    <SideBar isOpen={isOpen} toggle={toggle}/>
+                    <NavBar toggle={toggle} />
+                    <SideBar history = {props.history} isOpen={isOpen} toggle={toggle}/>
                    <ApplicationViews />
 
                 </>

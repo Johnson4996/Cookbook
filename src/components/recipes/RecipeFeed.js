@@ -19,14 +19,8 @@ export const RecipeFeed = (props) =>{
     },[])
 
     
-
-
     return(
         <>
-        
-        
-        
-
             <div className="recipeFeedContainer">
                     {
                        recipes.map(r =>{

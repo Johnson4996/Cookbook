@@ -28,7 +28,7 @@ export const ApplicationViews = () => {
                 <RecipeProvider>
                     <Route exact path="/recipe/new" render={(props) => {
                         return <>
-                            <RecipeForm {...props} />
+                            <RecipeForm {...props} id="RecipeForm" />
                         </>
                     }} />
                 </RecipeProvider>
