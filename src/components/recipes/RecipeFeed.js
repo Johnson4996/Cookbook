@@ -30,13 +30,13 @@ export const RecipeFeed = (props) =>{
                     {
                        recipes.map(r =>{
                           return(
-                    <Link onClick={()=>{props.history.push(`/recipe/${r.id}`)}}>
+                    
                         <div key={r.id} className="recipeCard">
-                            <p>{r.title}</p>
+                            <Link onClick={()=>{props.history.push(`/recipe/${r.id}`)}}><p>{r.title}</p></Link>
                             <p>By: <Link onClick={()=>{props.history.push(`/user/${r.author.user.id}`)}}>{r.author.user.username}</Link></p>
                             <img src={r.picture}/>
                         </div>
-                    </Link>
+                    
                           ) 
                        })
                     }

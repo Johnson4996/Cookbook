@@ -1,19 +1,28 @@
-import React from "react"
+import React, {useState} from "react"
 import { Route, Redirect } from "react-router-dom"
 import { ApplicationViews } from "./ApplicationViews"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
-import { NavBar } from "./nav/NavBar"
+import NavBar from "./nav/NavBar"
+import SideBar from "./nav/SideBar"
 
 
 
-export const CookBook = (props) => (
 
-    <>
+export const CookBook = (props) => {
+
+    const [isOpen, setIsOpen] = useState(false)
+
+    const toggle = () =>{
+        setIsOpen(!isOpen)
+    }
+
+   return( <>
         <Route render={(props) => {
             if (localStorage.getItem("cbuser")) {
                 return <>
-                   <NavBar/>
+                    <NavBar toggle={toggle}/>
+                    <SideBar isOpen={isOpen} toggle={toggle}/>
                    <ApplicationViews />
 
                 </>
@@ -31,4 +40,5 @@ export const CookBook = (props) => (
         }} />
         <Route path="/register" render={props => <Register {...props} />} />
     </>
-)
+   )
+}

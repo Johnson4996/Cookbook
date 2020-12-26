@@ -1,32 +1,38 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import "./NavBar.css"
+import React from 'react';
+import {FaBars} from 'react-icons/fa'
+import { Nav, NavbarContainer, NavLogo ,MobileIcon, NavMenu, NavItem, NavLinks } from "./NavBarElements"
 
 
 
+const NavBar = ({toggle}) => {
 
-export const NavBar = () => {
-    return(
-        <>
-        
-       
-        
-        <ul className="navbar">
-        <Link to="/"><h2 className className= "navbar__logo">CookBook</h2></Link>
+    
 
-            <li className="navbar__item">
-                <Link to="/recipe/new">Create</Link>
-            </li>
-            <li className="navbar__item">
-                <Link to="/recipes/search">Search</Link>
-            </li>
-            <li className="navbar__item">
-                <Link to="/profile">Profile</Link>
-            </li>
-            <li className="navbar__item">
-                <Link to="/logout">Logout</Link>
-            </li>
-        </ul>
-        </>
+    return (
+       <>
+            <Nav>
+                <NavbarContainer>
+                    <NavLogo to= "/"> Home </NavLogo>
+                    <MobileIcon onClick={()=> toggle()}><FaBars /></MobileIcon>
+                    <NavMenu>
+                        <NavItem>
+                            <NavLinks to="/recipes/create">Create</NavLinks>
+                        </NavItem>
+                        <NavItem>
+                            <NavLinks to="/recipes/search">Search</NavLinks>
+                        </NavItem>
+                        <NavItem>
+                            <NavLinks to="/profile">Profile</NavLinks>
+                        </NavItem>
+                        <NavItem>
+                            <NavLinks to="/logout">Logout</NavLinks>
+                        </NavItem>
+                    </NavMenu>
+                </NavbarContainer>
+            </Nav>
+       </>
     )
 }
+
+export default NavBar;
+
