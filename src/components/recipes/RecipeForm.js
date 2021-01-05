@@ -6,7 +6,7 @@ import { RecipeContext } from "./RecipeProvider"
 export const RecipeForm = (props) =>{
     const {recipes, getAllRecipes, createRecipe} = useContext(RecipeContext)
     const {categories,getAllCategories} = useContext(CategoryContext)
-    const [recipeState, setRecipe] = useState({})
+    const [recipeState, setRecipe] = useState({"notes": ""})
     const [ recipeImage, setRecipeImage ] = useState("")
 
     const editMode = props.match.params.hasOwnProperty("recipe_id")
@@ -76,6 +76,9 @@ export const RecipeForm = (props) =>{
     }
 
     return(
+
+        <>
+        <h2 className="recipeFormTitle">Create a new recipe</h2>
         <form className="recipeForm" autoComplete="off">
             
             <fieldset>
@@ -91,7 +94,7 @@ export const RecipeForm = (props) =>{
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="info"></label>
-                    <input type="text" name="info" required className="form-control"
+                    <textarea name="info" required className="form-control"
                         placeholder="Begining notes about your recipe"
                         defaultValue={recipeState.info}
                         onChange={handleControlledInputChange}
@@ -108,7 +111,7 @@ export const RecipeForm = (props) =>{
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="ingredients"></label>
-                    <input type="text" name="ingredients" required  className="form-control"
+                    <textarea name="ingredients" required  className="form-control"
                         placeholder="Ingredients needed"
                         defaultValue={recipeState.ingredients}
                         onChange={handleControlledInputChange} 
@@ -118,7 +121,7 @@ export const RecipeForm = (props) =>{
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="directions"></label>
-                    <input type="text" name="directions" required  className="form-control"
+                    <textarea type="text" name="directions" required  className="form-control"
                         placeholder="Directions"
                         defaultValue={recipeState.directions}
                         onChange={handleControlledInputChange} 
@@ -157,6 +160,7 @@ export const RecipeForm = (props) =>{
                             edit_prompt(recipeState.id)
                         } else {
                             constructNewRecipe()
+                            .then(props.history.push("/"))
                             
                         }
                     }}
@@ -165,5 +169,6 @@ export const RecipeForm = (props) =>{
                 </button>
             </section>
         </form>
+        </>
     )
 }

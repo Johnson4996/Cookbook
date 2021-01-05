@@ -49,11 +49,20 @@ export const RecipeProvider =  (props) =>{
             .then(setUserRecipes)
     }
 
+    const deleteRecipe = (recipe_id) =>{
+        return fetch(`http://localhost:8000/recipes/${recipe_id}`,{
+            method: "DELETE",
+            headers:{
+                "Authorization": `Token ${localStorage.getItem("cbuser")}`
+            }})
+    }
+
     
 
     return(
         <RecipeContext.Provider value ={{
-            recipes, getAllRecipes, createRecipe, getSingleUserRecipes, userRecipes, getSingleRecipe, recipe
+            recipes, getAllRecipes, createRecipe, getSingleUserRecipes, userRecipes, getSingleRecipe, recipe,
+            deleteRecipe
         }}>
             {props.children}
         </RecipeContext.Provider>

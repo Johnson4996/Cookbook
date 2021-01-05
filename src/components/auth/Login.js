@@ -30,6 +30,7 @@ export const Login = () => {
             .then(res => {
                 if (res.valid) {
                     localStorage.setItem("cbuser", res.token )
+                    localStorage.setItem("cbuser_id", res.id )
                     history.push("/")
                     
                 }

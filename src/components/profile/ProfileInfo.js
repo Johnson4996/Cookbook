@@ -20,9 +20,7 @@ useEffect(()=> {
 },[])
 
 
-
-
-
+// bio edit button displays input to update user bio property. Save on click will send update fetch to api
 
 
     return (

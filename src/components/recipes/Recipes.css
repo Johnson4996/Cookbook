@@ -1,4 +1,19 @@
 .recipeFeedContainer, .recipeInfoContainer{
     margin-top: 6rem;
+    overflow-y: scroll;
     
+}
+
+
+
+.ingredients, .directions{
+    white-space: pre-line;
+}
+
+.recipeFormTitle{
+    margin-top: 5rem;
+}
+
+.recipeForm{
+    margin-top: 2rem;
 }
