@@ -11,7 +11,7 @@ const SideBar = ({isOpen, toggle, history}) => {
                 <SidebarMenu>
                     <SidebarLink onClick={()=>history.push('/recipe/new')}>Create</SidebarLink>
                     <SidebarLink onClick={()=>history.push("/recipes/search")}>Search</SidebarLink>
-                    <SidebarLink onClick={()=>history.push("/my-profile")}>Profile</SidebarLink>
+                    <SidebarLink onClick={()=>history.push(`/user/${localStorage.getItem('cbuser_id')}`)}>Profile</SidebarLink>
                     <SidebarLink onClick={()=>history.push("/logout")}>Logout</SidebarLink>
                 </SidebarMenu>
             </SidebarWrapper>

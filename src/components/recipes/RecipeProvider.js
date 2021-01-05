@@ -57,12 +57,24 @@ export const RecipeProvider =  (props) =>{
             }})
     }
 
+    const updateRecipe = (recipe) =>{
+        return fetch(`http://localhost:8000/recipes/${recipe.id}`,{
+            method: "PUT",
+            headers:{
+                "Content-Type": "application/json",
+                "Authorization": `Token ${localStorage.getItem("cbuser")}`
+            },
+            body: JSON.stringify(recipe)
+        })
+            .then(getAllRecipes)
+    }
+
     
 
     return(
         <RecipeContext.Provider value ={{
             recipes, getAllRecipes, createRecipe, getSingleUserRecipes, userRecipes, getSingleRecipe, recipe,
-            deleteRecipe
+            deleteRecipe, updateRecipe
         }}>
             {props.children}
         </RecipeContext.Provider>

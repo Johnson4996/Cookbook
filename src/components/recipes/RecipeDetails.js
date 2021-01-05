@@ -34,7 +34,7 @@ export const RecipeDetails = (props) => {
         </div>
 
         <div>
-            <EditIcon />
+            <EditIcon onClick ={()=>{props.history.push(`/recipe/edit/${recipe.id}`)}} />
             <DeleteIcon onClick= {()=>{deleteRecipe(recipe.id).then(props.history.push("/"))}} />
         </div>
         </> :  
@@ -48,6 +48,9 @@ export const RecipeDetails = (props) => {
         <p>{recipe.ingredients}</p>
         <p>{recipe.directions}</p>
         <p>{recipe.notes}</p>
+        </div>
+        <div>
+            
         </div>
 
         </>

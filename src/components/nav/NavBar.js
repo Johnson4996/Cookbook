@@ -16,16 +16,16 @@ const NavBar = ({history,toggle}) => {
                     <MobileIcon onClick={()=> toggle()}><FaBars /></MobileIcon>
                     <NavMenu>
                         <NavItem>
-                            <NavLinks onClick={()=>history.push('/recipe/new')}>Create</NavLinks>
+                            <NavLinks onClick={()=>{history.push('/recipe/new')}}>Create</NavLinks>
                         </NavItem>
                         <NavItem>
-                            <NavLinks onClick={()=>history.push('/recipe/search')}>Search</NavLinks>
+                            <NavLinks onClick={()=>{history.push('/recipe/search')}}>Search</NavLinks>
                         </NavItem>
                         <NavItem>
-                            <NavLinks onClick={()=>history.push('/my-profile')}>Profile</NavLinks>
+                            <NavLinks onClick={()=>{history.push('/my-profile')}}>Profile</NavLinks>
                         </NavItem>
                         <NavItem>
-                            <NavLinks onClick={()=>history.push('/logout')}>Logout</NavLinks>
+                            <NavLinks onClick={()=>{history.push('/logout')}}>Logout</NavLinks>
                         </NavItem>
                     </NavMenu>
                 </NavbarContainer>
