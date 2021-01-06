@@ -10,7 +10,7 @@ const SideBar = ({isOpen, toggle, history}) => {
             <SidebarWrapper>
                 <SidebarMenu>
                     <SidebarLink onClick={()=>history.push('/recipe/new')}>Create</SidebarLink>
-                    <SidebarLink onClick={()=>history.push("/recipes/search")}>Search</SidebarLink>
+                    <SidebarLink onClick={()=>history.push("/search")}>Search</SidebarLink>
                     <SidebarLink onClick={()=>history.push(`/user/${localStorage.getItem('cbuser_id')}`)}>Profile</SidebarLink>
                     <SidebarLink onClick={()=>history.push("/logout")}>Logout</SidebarLink>
                 </SidebarMenu>
