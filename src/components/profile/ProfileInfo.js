@@ -1,15 +1,18 @@
-import React, {useContext, useEffect} from "react"
+import React, {useContext, useEffect, useState} from "react"
 import { FavoritesContext } from "../favorites/FavoritesProvider"
 import { RecipeContext } from "../recipes/RecipeProvider"
 import { UserContext } from "../users/UserProvider"
+import CloseIcon from '@material-ui/icons/Close';
 
 
 
 
 export const ProfileInfo = (props) =>{
 const {cbUser, getSingleCbUser} = useContext(UserContext)
-const{favorites, getUserFavorites } = useContext(FavoritesContext)
+const{favorites, getUserFavorites, } = useContext(FavoritesContext)
 const {getSingleUserRecipes, userRecipes} = useContext(RecipeContext)
+
+
 
 
 

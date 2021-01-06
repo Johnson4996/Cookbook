@@ -26,12 +26,24 @@ export const FavoritesProvider =  (props) =>{
             },
             body: JSON.stringify(recipe_id)
         })
-        //may need to .then set state to active user?
     }
+
+    const deleteFavorite = (fav_id) =>{
+        return fetch(`http://localhost:8000/userfavorites/${fav_id}`,{
+            method: "DELETE",
+            headers:{
+                "Content-Type": "application/json",
+                "Authorization": `Token ${localStorage.getItem("cbuser")}`
+            },
+            body: JSON.stringify(fav_id)
+        })
+    }
+    
+    
 
     return(
         <FavoritesContext.Provider value ={{
-            favorites, getUserFavorites, createFavorite
+            favorites, getUserFavorites, createFavorite, deleteFavorite
         }}>
             {props.children}
         </FavoritesContext.Provider>
