@@ -20,7 +20,7 @@ export const RecipeDetails = (props) => {
        getSingleRecipe(props.match.params.recipe_id)
        getUserFavorites(props.match.params.recipe_id)
        favorites.map(f =>{
-        if(f.recipe.id == props.match.params.recipe_id){
+        if(f.recipe.id === props.match.params.recipe_id){
             setButtonState(true)
             setFavId(f.id)
         }else{

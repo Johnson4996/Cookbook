@@ -8,6 +8,8 @@ import { UserProvider } from "./users/UserProvider"
 import { ProfileInfo } from "./profile/ProfileInfo"
 import { FavoritesProvider } from "./favorites/FavoritesProvider"
 import { RecipeDetails } from "./recipes/RecipeDetails"
+import { SearchBar } from "./search/SearchBar"
+import { SearchResults } from "./search/SearchResults"
 
 
 
@@ -50,6 +52,13 @@ export const ApplicationViews = () => {
                     <Route exact path="/recipe/:recipe_id(\d+)" render={(props) => {
                         return <>
                             <RecipeDetails {...props} />
+                        </>
+                    }} />
+                    <Route exact path="/search" render={(props) => {
+                        return <>
+                            <SearchBar {...props} />
+                            <SearchResults {...props} />
+
                         </>
                     }} />
                 </UserProvider>

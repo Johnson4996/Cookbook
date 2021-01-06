@@ -7,6 +7,7 @@ export const RecipeProvider =  (props) =>{
     const [recipes, setRecipes] = useState([])
     const [recipe, setRecipe] = useState({"author": {"user": {}},"category":{}})
     const [userRecipes, setUserRecipes] = useState([])
+    const [searchResults, setSearchResults] = useState([])
 
 
     const getAllRecipes = () =>{
@@ -69,12 +70,21 @@ export const RecipeProvider =  (props) =>{
             .then(getAllRecipes)
     }
 
+    const searchRecipes = (search) =>{
+        return fetch(`http://localhost:8000/recipes?search=${search}`,{
+            headers:{
+                "Authorization": `Token ${localStorage.getItem("cbuser")}`
+            }})
+            .then(res => res.json())
+            .then(setSearchResults)
+    }
+
     
 
     return(
         <RecipeContext.Provider value ={{
             recipes, getAllRecipes, createRecipe, getSingleUserRecipes, userRecipes, getSingleRecipe, recipe,
-            deleteRecipe, updateRecipe
+            deleteRecipe, updateRecipe, searchRecipes, searchResults
         }}>
             {props.children}
         </RecipeContext.Provider>
