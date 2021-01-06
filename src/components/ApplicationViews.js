@@ -31,6 +31,11 @@ export const ApplicationViews = () => {
                             <RecipeForm {...props} id="RecipeForm" />
                         </>
                     }} />
+                    <Route exact path="/recipe/edit/:recipe_id(\d+)" render={(props) => {
+                        return <>
+                            <RecipeForm {...props} id="RecipeForm" />
+                        </>
+                    }} />
                 </RecipeProvider>
             </CategoryProvider>
 

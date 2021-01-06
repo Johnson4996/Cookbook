@@ -7,6 +7,7 @@ export const Register = (props) => {
     const last_name = useRef()
     const username = useRef()
     const email = useRef()
+    const bio = useRef()
     const password = useRef()
     const verifyPassword = useRef()
     const passwordDialog = useRef()
@@ -29,7 +30,7 @@ export const Register = (props) => {
                 "email": email.current.value,
                 "username": username.current.value,
                 "password": password.current.value,
-                "bio": "",
+                "bio": bio.current.value,
                 "active": true,
             }
 
@@ -45,6 +46,7 @@ export const Register = (props) => {
                 .then(res => {
                     if ("token" in res) {
                         localStorage.setItem("cbuser", res.token)
+                        localStorage.setItem("cbuser_id", res.id )
                         props.history.push("/")
                     }
                 })
@@ -74,12 +76,16 @@ export const Register = (props) => {
                     </fieldset>
                 </div>
                 <fieldset>
-                    <label htmlFor="inputEmail"> Username </label>
+                    <label htmlFor="inputUsername"> Username </label>
                     <input ref={username} type="text" name="username" className="form-control" placeholder="Username" required />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="inputEmail"> Email address </label>
                     <input ref={email} type="email" name="email" className="form-control" placeholder="Email address" required />
+                </fieldset>
+                <fieldset>
+                    <label htmlFor="inputBio"> Bio </label>
+                    <input ref={bio} type="text" name="bio" className="form-control" placeholder="Enter a quick bio for others to see" required />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="inputPassword"> Password </label>

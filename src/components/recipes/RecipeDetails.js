@@ -1,19 +1,46 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect,useState } from "react"
 import { Link } from "react-router-dom"
 import { RecipeContext } from "./RecipeProvider"
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
+import StarIcon from '@material-ui/icons/Star';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
+import { FavoritesContext } from "../favorites/FavoritesProvider";
 
 
 export const RecipeDetails = (props) => {
 
     const {recipe, getSingleRecipe, deleteRecipe} = useContext(RecipeContext)
+    const{favorites, getUserFavorites, createFavorite, deleteFavorite } = useContext(FavoritesContext)
+
+    const [buttonState, setButtonState] = useState(false)
+    const [favId, setFavId] = useState()
 
    useEffect(()=>{
        getSingleRecipe(props.match.params.recipe_id)
+       getUserFavorites(props.match.params.recipe_id)
+       favorites.map(f =>{
+        if(f.recipe.id == props.match.params.recipe_id){
+            setButtonState(true)
+            setFavId(f.id)
+        }else{
+            setButtonState(false)
+        }
+          
+    })
        
    }, [])
+    
+  
+   
 
+   const handleFavoriteClick = () => {
+    const icon  = buttonState
+    setButtonState( !icon )   
+}
+
+  
+   console.log(favId)
    
    
     return(
@@ -34,7 +61,7 @@ export const RecipeDetails = (props) => {
         </div>
 
         <div>
-            <EditIcon />
+            <EditIcon onClick ={()=>{props.history.push(`/recipe/edit/${recipe.id}`)}} />
             <DeleteIcon onClick= {()=>{deleteRecipe(recipe.id).then(props.history.push("/"))}} />
         </div>
         </> :  
@@ -49,6 +76,15 @@ export const RecipeDetails = (props) => {
         <p>{recipe.directions}</p>
         <p>{recipe.notes}</p>
         </div>
+        <div>
+            {
+            buttonState? <StarIcon onClick={()=>deleteFavorite(favId).then(handleFavoriteClick())}/>:
+            <StarBorderIcon onClick={()=>createFavorite(recipe.id).then(handleFavoriteClick())}/> 
+            }   
+        </div>
+        
+           
+        
 
         </>
     )

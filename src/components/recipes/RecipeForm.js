@@ -4,9 +4,9 @@ import { RecipeContext } from "./RecipeProvider"
 
 
 export const RecipeForm = (props) =>{
-    const {recipes, getAllRecipes, createRecipe} = useContext(RecipeContext)
+    const {recipe, getSingleRecipe, createRecipe, updateRecipe} = useContext(RecipeContext)
     const {categories,getAllCategories} = useContext(CategoryContext)
-    const [recipeState, setRecipe] = useState({"notes": ""})
+    const [recipeState, setRecipeState] = useState({"notes": ""})
     const [ recipeImage, setRecipeImage ] = useState("")
 
     const editMode = props.match.params.hasOwnProperty("recipe_id")
@@ -15,20 +15,20 @@ export const RecipeForm = (props) =>{
     const handleControlledInputChange = (event) =>{
         const newRecipe = Object.assign({}, recipeState)
         newRecipe[event.target.name] = event.target.value
-        setRecipe(newRecipe)
+        setRecipeState(newRecipe)
     }
 
     const getRecipeInEditMode = () => {
         if (editMode){
             const recipe_id = parseInt(props.match.params.recipe_id)
-            const selectedRecipe = recipes.find(recipe => recipe.id === recipe_id) || null
-            setRecipe(selectedRecipe)
+            getSingleRecipe(recipe_id)
+            .then(setRecipeState(recipe))
+            
 
         }
     }
 
     useEffect(() => {
-        getAllRecipes()
         getAllCategories()
         getRecipeInEditMode()
     },[])
@@ -36,8 +36,8 @@ export const RecipeForm = (props) =>{
     const edit_prompt = (id) => {
         let retVal = window.confirm("Save edits?")
         if(retVal===true){
-            // constructNewRecipe()
-            // .then(props.history.push("/"))
+            constructNewRecipe()
+            props.history.push("/")
             return true
         }else{
             return false
@@ -49,7 +49,16 @@ export const RecipeForm = (props) =>{
         const category_id = parseInt(recipeState.category_id)
         
         if(editMode){
-            //Edit recipe
+            updateRecipe({
+                id: recipeState.id,
+                title: recipeState.title,
+                info: recipeState.info,
+                picture: recipeImage.image_url,
+                ingredients: recipeState.ingredients,
+                directions: recipeState.directions,
+                notes: recipeState.notes,
+                category: category_id
+            })
         }else{
             createRecipe({
                 title: recipeState.title,
@@ -78,7 +87,7 @@ export const RecipeForm = (props) =>{
     return(
 
         <>
-        <h2 className="recipeFormTitle">Create a new recipe</h2>
+        <h2 className="recipeFormTitle">{editMode ? 'Edit Recipe' : 'Create New Recipe'}</h2>
         <form className="recipeForm" autoComplete="off">
             
             <fieldset>
