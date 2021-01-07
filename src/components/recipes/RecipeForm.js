@@ -169,7 +169,7 @@ export const RecipeForm = (props) =>{
                             edit_prompt(recipeState.id)
                         } else {
                             constructNewRecipe()
-                            .then(props.history.push("/"))
+                            props.history.push("/")
                             
                         }
                     }}

@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState} from "react"
 import { FavoritesContext } from "../favorites/FavoritesProvider"
 import { RecipeContext } from "../recipes/RecipeProvider"
 import { UserContext } from "../users/UserProvider"
-import CloseIcon from '@material-ui/icons/Close';
+import "./profile.css"
 
 
 

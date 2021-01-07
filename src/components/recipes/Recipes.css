@@ -1,14 +1,50 @@
+
+
+
+
+
+/* Recipe feed css */
+
 .recipeFeedContainer, .recipeInfoContainer{
     margin-top: 6rem;
+    margin-right:1rem;
     overflow-y: scroll;
     
 }
 
+.recipeCard{
+    height: 15%;
+    width:100%;
+   
+}
+
+.recipeCardImage{
+margin-top:2rem;
+max-width: 100%;
+}
 
 
+
+/* Recipe Details css */
 .ingredients, .directions{
     white-space: pre-line;
 }
+
+.recipeTitleContainer{
+    display: flex;
+}
+
+.recipeDeatilsImg{
+    max-width: 100%;
+    align-self: center;
+}
+
+.ingredients{
+    
+}
+
+
+/* Recipe Form css */
 
 .recipeFormTitle{
     margin-top: 5rem;

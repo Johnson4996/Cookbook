@@ -27,9 +27,10 @@ export const RecipeFeed = (props) =>{
                           return(
                     
                         <div key={r.id} className="recipeCard">
-                            <Link onClick={()=>{props.history.push(`/recipe/${r.id}`)}}><p>{r.title}</p></Link>
-                            <p>By: <Link onClick={()=>{props.history.push(`/user/${r.author.user.id}`)}}>{r.author.user.username}</Link></p>
-                            <img src={r.picture}/>
+                            <div className="recipeCardImageContainer"><img className="recipeCardImage" src={r.picture}/></div>
+                            <Link className="recipeCardTitle" onClick={()=>{props.history.push(`/recipe/${r.id}`)}}><p>{r.title}</p></Link>
+                            <Link className="recipeCardAuthor" onClick={()=>{props.history.push(`/user/${r.author.user.id}`)}}>{r.author.user.username}</Link>
+                            
                         </div>
                     
                           ) 

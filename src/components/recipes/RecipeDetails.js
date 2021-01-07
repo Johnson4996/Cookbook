@@ -47,7 +47,7 @@ export const RecipeDetails = (props) => {
         recipe.author.user.id === parseInt(localStorage.getItem('cbuser_id')) ? 
         <>
         <div className="recipeInfoContainer">
-            <p>{recipe.category.label}</p>
+            
             <h2>{recipe.title}</h2>
         <p>By: <Link onClick={()=>{props.history.push(`/user/${recipe.author.user.id}`)}}>{recipe.author.user.username}</Link> </p>
         <p>{recipe.info}</p>
@@ -58,6 +58,7 @@ export const RecipeDetails = (props) => {
         <p className="directions">{recipe.directions}</p>
         <h3>Authors Notes:</h3>
         <p>{recipe.notes}</p>
+        <p>{recipe.category.label}</p>
         </div>
 
         <div>
@@ -67,21 +68,27 @@ export const RecipeDetails = (props) => {
         </> :  
         <>
         <div className="recipeInfoContainer">
-            <p>{recipe.category.label}</p>
+            <div className="recipeTitleContainer">
             <h2>{recipe.title}</h2>
-        <p>By: <Link onClick={()=>{props.history.push(`/user/${recipe.author.user.id}`)}}>{recipe.author.user.username}</Link> </p>
-        <p>{recipe.info}</p>
-        <img src={recipe.picture}></img>
-        <p>{recipe.ingredients}</p>
-        <p>{recipe.directions}</p>
-        <p>{recipe.notes}</p>
-        </div>
-        <div>
+            <div>
             {
             buttonState? <StarIcon onClick={()=>deleteFavorite(favId).then(handleFavoriteClick())}/>:
             <StarBorderIcon onClick={()=>createFavorite(recipe.id).then(handleFavoriteClick())}/> 
             }   
         </div>
+        </div>
+        <p>By: <Link onClick={()=>{props.history.push(`/user/${recipe.author.user.id}`)}}>{recipe.author.user.username}</Link> </p>
+        <p>{recipe.info}</p>
+        <img className="recipeDeatilsImg" src={recipe.picture}></img>
+        <h3>Ingredients:</h3>
+        <p className="ingredients">{recipe.ingredients}</p>
+        <h3>Directions:</h3>
+        <p className="directions">{recipe.directions}</p>
+        <h3>Authors Notes:</h3>
+        <p>{recipe.notes}</p>
+        <p>{recipe.category.label}</p>
+        </div>
+        
         
            
         
