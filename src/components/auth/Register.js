@@ -12,18 +12,14 @@ export const Register = (props) => {
     const verifyPassword = useRef()
     const passwordDialog = useRef()
 
-    // const existingUserCheck = () => {
-    //     return fetch(`http://localhost:8000/register`)
-    //         .then(_ => _.json())
-    //         .then(user => !!user.length)
-    // }
+    
 
     const handleRegister = (e) => {
         e.preventDefault()
 
         if (password.current.value === verifyPassword.current.value) {
 
-            
+            //use ref to create new user object 
             const newUser = {
                 "first_name": first_name.current.value,
                 "last_name": last_name.current.value,
@@ -33,7 +29,7 @@ export const Register = (props) => {
                 "bio": bio.current.value,
                 "active": true,
             }
-
+            //POST new user to db and log them in 
             return fetch("http://localhost:8000/register", {
                 method: "POST",
                 headers: {
@@ -45,6 +41,7 @@ export const Register = (props) => {
                 .then(_ => _.json())
                 .then(res => {
                     if ("token" in res) {
+                        //set local storage items for personalized usage
                         localStorage.setItem("cbuser", res.token)
                         localStorage.setItem("cbuser_id", res.id )
                         props.history.push("/")
