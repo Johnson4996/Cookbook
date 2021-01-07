@@ -1,3 +1,5 @@
+// data provider for categories
+
 import React, { useState } from "react"
 
 

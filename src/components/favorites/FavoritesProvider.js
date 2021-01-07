@@ -1,3 +1,5 @@
+//data provider for favorites
+
 import React, { useState } from "react"
 
 
@@ -16,7 +18,7 @@ export const FavoritesProvider =  (props) =>{
             .then(setFavorites)
     }
 
-
+    // takes the id of favorited recipe and sends to backend to save favorite
     const createFavorite = (recipe_id) =>{
         return fetch(`http://localhost:8000/userfavorites`,{
             method: "POST",

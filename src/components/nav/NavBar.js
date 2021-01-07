@@ -1,3 +1,5 @@
+//Navigation bar component using styled components
+
 import React from 'react';
 import {FaBars} from 'react-icons/fa'
 import { Nav, NavbarContainer, NavLogo ,MobileIcon, NavMenu, NavItem, NavLinks } from "./NavBarElements"

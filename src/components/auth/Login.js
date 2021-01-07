@@ -1,3 +1,5 @@
+//Component handles login
+
 import React, { useRef } from "react"
 import { Link, useHistory } from "react-router-dom"
 import "./Auth.css"
@@ -14,7 +16,7 @@ export const Login = () => {
 
     const handleLogin = (e) => {
         e.preventDefault()
-
+        //POST credientials to db to verify user using username and password 
         return fetch("http://localhost:8000/login", {
             method: "POST",
             headers: {
@@ -29,6 +31,7 @@ export const Login = () => {
             .then(res => res.json())
             .then(res => {
                 if (res.valid) {
+                    //if the user is valid, then set localstorage items for personalized app usage
                     localStorage.setItem("cbuser", res.token )
                     localStorage.setItem("cbuser_id", res.id )
                     history.push("/")
