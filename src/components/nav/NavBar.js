@@ -14,7 +14,7 @@ const NavBar = ({history,toggle}) => {
        <>
             <Nav>
                 <NavbarContainer>
-                    <NavLogo to= "/"> CookBook </NavLogo>
+                    <NavLogo to= "/"> CookBook. </NavLogo>
                     <MobileIcon onClick={()=> toggle()}><FaBars /></MobileIcon>
                     <NavMenu>
                         <NavItem>

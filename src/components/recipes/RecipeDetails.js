@@ -54,29 +54,32 @@ export const RecipeDetails = (props) => {
         recipe.author.user.id === parseInt(localStorage.getItem('cbuser_id')) ?
             <>
                 <div className="recipeInfoContainer">
-
-                    <h2>{recipe.title}</h2>
+                <p className="recipeDetailsCat">{recipe.category.label} Recipes</p>
+                    <h2 className="recipeDetailsTitle">{recipe.title}</h2>
                     <p>By: <Link onClick={() => { props.history.push(`/user/${recipe.author.user.id}`) }}>{recipe.author.user.username}</Link> </p>
                     <p>{recipe.info}</p>
-                    <img src={recipe.picture}></img>
+                    <img className="recipeDeatilsImg"  src={recipe.picture}></img>
                     <h3>Ingredients:</h3>
                     <p className="ingredients">{recipe.ingredients}</p>
                     <h3>Directions:</h3>
                     <p className="directions">{recipe.directions}</p>
                     <h3>Authors Notes:</h3>
                     <p>{recipe.notes}</p>
-                    <p>{recipe.category.label}</p>
                 </div>
 
-                <div>
-                    <EditIcon onClick={() => { props.history.push(`/recipe/edit/${recipe.id}`) }} />
-                    <DeleteIcon onClick={() => { deleteRecipe(recipe.id).then(props.history.push("/")) }} />
+                <div className="editDelIconContainer">
+                    Edit or delete your post?
+                    <div>
+                    <EditIcon className="editIcon" onClick={() => { props.history.push(`/recipe/edit/${recipe.id}`) }} />
+                    <DeleteIcon className="delIcon" onClick={() => { deleteRecipe(recipe.id).then(props.history.push("/")) }} />
+                    </div>
                 </div>
             </> :
             <>
                 <div className="recipeInfoContainer">
+                <p className="recipeDetailsCat">{recipe.category.label} Recipes</p>
                     <div className="recipeTitleContainer">
-                        <h2>{recipe.title}</h2>
+                        <h2 className="recipeDetailsTitle">{recipe.title}</h2>
                         <div className="favIconContainer">
                             {
                                 buttonState ? <FavoriteIcon className="favIcon" onClick={() => deleteFavorite(favId).then(handleFavoriteClick())} /> :
@@ -84,7 +87,7 @@ export const RecipeDetails = (props) => {
                             }
                         </div>
                     </div>
-                    <p>By: <Link onClick={() => { props.history.push(`/user/${recipe.author.user.id}`) }}>{recipe.author.user.username}</Link> </p>
+                    <p>By: <Link className="recipeDetailsAuthor" onClick={() => { props.history.push(`/user/${recipe.author.user.id}`) }}>{recipe.author.user.username}</Link> </p>
                     <p>{recipe.info}</p>
                     <img className="recipeDeatilsImg" src={recipe.picture}></img>
                     <h3>Ingredients:</h3>
@@ -93,7 +96,6 @@ export const RecipeDetails = (props) => {
                     <p className="directions">{recipe.directions}</p>
                     <h3>Authors Notes:</h3>
                     <p>{recipe.notes}</p>
-                    <p>{recipe.category.label}</p>
                 </div>
 
 

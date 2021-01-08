@@ -53,20 +53,42 @@ height: inherit;
 /* Recipe Details css */
 /* ============================================ */
 
+.recipeDetailsCat{
+    margin-top:1rem;
+    margin-bottom: 2rem;
+    font-size: smaller;
+    font-style: italic;
+}
+
 .recipeTitleContainer{
     display: flex;
 }
 
 .favIconContainer{
     align-self: center;
-    margin-left: 5%;
+    margin-left: 10%;
 }
+
+.recipeDetailsTitle{
+    border-bottom: 2px solid #e9c46a ;
+}
+
+.favIcon{
+    color: #e76f51;
+}
+
+.recipeDetailsAuthor{
+    color: #2a9d8f;
+    text-align: left;
+}
+
 .ingredients, .directions{
     white-space: pre-line;
 }
 
 .recipeInfoContainer{
     text-align: center;
+   
 }
 
 .recipeDeatilsImg{
@@ -74,9 +96,22 @@ height: inherit;
     align-self: center;
 }
 
-.ingredients{
-    
+.editDelIconContainer{
+    display: flex;
+    justify-content: space-between;
 }
+
+.delIcon{
+    color: rgb(142, 150, 156);
+    font-size: x-large;
+}
+
+.editIcon{
+    color: #e9c46a;
+}
+
+
+
 
 
 /* Recipe Form css */
