@@ -6,32 +6,67 @@
 /* Recipe feed css */
 
 .recipeFeedContainer, .recipeInfoContainer{
-    margin-top: 6rem;
-    margin-right:1rem;
+    margin-top: 5rem;
     overflow-y: scroll;
     
 }
 
 .recipeCard{
-    height: 15%;
-    width:100%;
-   
+    position:relative;
+    display: flex;
+    margin-top:1rem;
+    width: 100%;
 }
 
 .recipeCardImage{
-margin-top:2rem;
-max-width: 100%;
+max-width: 50%;
+height: inherit;
+
+}
+
+.recipeFeedInfoContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+    background-color: rgba(43, 45, 47, .9);
+    text-align: end;
+    word-wrap: break-word;
+    
+}
+
+.recipeCardTitle, .recipeCardAuthor{
+    color: white;
+    text-decoration: none;
+    margin-right: 1rem;
+    padding: 1rem;
+    overflow-wrap: break-word;
+    
+}
+
+.recipeCardAuthor{
+    margin-bottom: 1rem;
 }
 
 
 
 /* Recipe Details css */
+/* ============================================ */
+
+.recipeTitleContainer{
+    display: flex;
+}
+
+.favIconContainer{
+    align-self: center;
+    margin-left: 5%;
+}
 .ingredients, .directions{
     white-space: pre-line;
 }
 
-.recipeTitleContainer{
-    display: flex;
+.recipeInfoContainer{
+    text-align: center;
 }
 
 .recipeDeatilsImg{

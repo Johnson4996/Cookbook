@@ -27,17 +27,20 @@ export const RecipeForm = (props) =>{
 
         }
     }
-
+    
     useEffect(() => {
         getAllCategories()
-        getRecipeInEditMode()
+        .then(getRecipeInEditMode)
+        
     },[])
+
+    
 
     const edit_prompt = (id) => {
         let retVal = window.confirm("Save edits?")
         if(retVal===true){
             constructNewRecipe()
-            props.history.push("/")
+            
             return true
         }else{
             return false
@@ -58,7 +61,7 @@ export const RecipeForm = (props) =>{
                 directions: recipeState.directions,
                 notes: recipeState.notes,
                 category: category_id
-            })
+            }).then(props.history.push(`/recipe/${recipeState.id}`))
         }else{
             createRecipe({
                 title: recipeState.title,
@@ -68,7 +71,7 @@ export const RecipeForm = (props) =>{
                 directions: recipeState.directions,
                 notes: recipeState.notes,
                 category: category_id
-            })
+            }).then(props.history.push("/"))
         }
     }
 
@@ -169,8 +172,6 @@ export const RecipeForm = (props) =>{
                             edit_prompt(recipeState.id)
                         } else {
                             constructNewRecipe()
-                            props.history.push("/")
-                            
                         }
                     }}
                     className="btn btn-primary">
