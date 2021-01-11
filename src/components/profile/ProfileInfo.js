@@ -1,8 +1,9 @@
-import React, {useContext, useEffect, useState} from "react"
+import React, {useContext, useEffect} from "react"
 import { FavoritesContext } from "../favorites/FavoritesProvider"
 import { RecipeContext } from "../recipes/RecipeProvider"
 import { UserContext } from "../users/UserProvider"
-import CloseIcon from '@material-ui/icons/Close';
+import { Link } from "react-router-dom"
+import "./profile.css"
 
 
 
@@ -29,39 +30,44 @@ useEffect(()=> {
     <>
         
             <section className="info__container">
-                <div className="first__info">
                     <h2>{cbUser.user.username}'s Profile</h2>
-                    <p>{cbUser.user.first_name} {cbUser.user.last_name}</p>
-                </div>
-                <div>
-                    <p>Member Since: {cbUser.user.date_joined}</p>
+                <div className="first__info">
+                    <p>Name: {cbUser.user.first_name} {cbUser.user.last_name}</p>
                 </div>
                 <div className="user__bio">
                     <p>{cbUser.bio}</p>
                 </div>
-                <div className="user__likedRecipes">
-                    <h4>{cbUser.user.username}'s Favorites</h4>
+                <h4 className="profileFavoritesTitle">{cbUser.user.username}'s Favorites</h4>
+                <div className="userLikedRecipesContainer">
                     {
                         favorites.map(f =>{
                             return(
-                                <div> 
-                                    <p>{f.recipe.title}</p>
-                                </div>
+                                <div key={f.recipe.id} className="recipeCard profileRecipeCard">
+                            <img className="recipeCardImage" src={f.recipe.picture} alt="recipe_image"/>
+                            <div className="recipeFeedInfoContainer">
+                                <Link className="recipeCardTitle" onClick={()=>{props.history.push(`/recipe/${f.recipe.id}`)}}><h4>{f.recipe.title}</h4></Link>
+                            </div>
+                        </div>
                             )
                         })
                     }
                 </div>
-                <div className="user__postedRecipes">
+                <div className="userPostedRecipesContainer">
                     <h4>Recipes by {cbUser.user.username}</h4>
+                    <div>
                     {
                         userRecipes.map(r =>{
                             return(
-                                <div> 
-                                    <p>{r.title}</p>
-                                </div>
+                                <div key={r.id} className="recipeCard">
+                            <img className="recipeCardImage" src={r.picture} alt="recipe_image"/>
+                            <div className="recipeFeedInfoContainer">
+                                <Link className="recipeCardTitle" onClick={()=>{props.history.push(`/recipe/${r.id}`)}}><h4>{r.title}</h4></Link>
+                            </div>
+                        </div>
                             )
                         })
                     }
+                    </div>
                 </div>
             </section>
         </>

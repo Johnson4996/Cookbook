@@ -1,14 +1,126 @@
+
+
+
+
+
+/* Recipe feed css */
+
 .recipeFeedContainer, .recipeInfoContainer{
-    margin-top: 6rem;
+    margin-top: 5rem;
     overflow-y: scroll;
     
 }
 
+.recipeCard{
+    position:relative;
+    display: flex;
+    margin-top:1rem;
+    width: 100%;
+}
 
+.recipeCardImage{
+max-width: 50%;
+height: inherit;
+width:207px;
+height:207px;
+object-fit: cover;
+
+}
+
+.recipeFeedInfoContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+    background-color: rgba(43, 45, 47, .9);
+    text-align: end;
+    word-wrap: break-word;
+    
+}
+
+.recipeCardTitle, .recipeCardAuthor{
+    color: white;
+    text-decoration: none;
+    margin-right: 1rem;
+    padding: 1rem;
+    overflow-wrap: break-word;
+    
+}
+
+.recipeCardAuthor{
+    margin-bottom: 1rem;
+}
+
+
+
+/* Recipe Details css */
+/* ============================================ */
+
+.recipeDetailsCat{
+    margin-top:1rem;
+    margin-bottom: 2rem;
+    font-size: smaller;
+    font-style: italic;
+}
+
+.recipeTitleContainer{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 1rem;
+    margin-right: 2rem;
+}
+
+.favIconContainer{
+    align-self: center;
+    margin-left: 10%;
+}
+
+.recipeDetailsTitle{
+    border-bottom: 2px solid #e9c46a ;
+}
+
+.favIcon{
+    color: #e76f51;
+}
+
+.recipeDetailsAuthor{
+    color: #2a9d8f;
+    text-align: left;
+}
 
 .ingredients, .directions{
     white-space: pre-line;
 }
+
+.recipeInfoContainer{
+    text-align: center;
+   
+}
+
+.recipeDeatilsImg{
+    max-width: 100%;
+    align-self: center;
+}
+
+.editDelIconContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.delIcon{
+    color: rgb(142, 150, 156);
+    font-size: x-large;
+}
+
+.editIcon{
+    color: #e9c46a;
+}
+
+
+
+
+
+/* Recipe Form css */
 
 .recipeFormTitle{
     margin-top: 5rem;

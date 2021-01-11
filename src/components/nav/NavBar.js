@@ -14,7 +14,7 @@ const NavBar = ({history,toggle}) => {
        <>
             <Nav>
                 <NavbarContainer>
-                    <NavLogo to= "/"> CookBook </NavLogo>
+                    <NavLogo to= "/"> CookBook. </NavLogo>
                     <MobileIcon onClick={()=> toggle()}><FaBars /></MobileIcon>
                     <NavMenu>
                         <NavItem>
@@ -24,7 +24,7 @@ const NavBar = ({history,toggle}) => {
                             <NavLinks onClick={()=>{history.push('/recipe/search')}}>Search</NavLinks>
                         </NavItem>
                         <NavItem>
-                            <NavLinks onClick={()=>{history.push('/my-profile')}}>Profile</NavLinks>
+                            <NavLinks onClick={()=>{history.push(`/user/${localStorage.getItem('cbuser_id')}`)}}>Profile</NavLinks>
                         </NavItem>
                         <NavItem>
                             <NavLinks onClick={()=>{history.push('/logout')}}>Logout</NavLinks>

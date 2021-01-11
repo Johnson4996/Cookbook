@@ -22,18 +22,21 @@ export const RecipeFeed = (props) =>{
     return(
         <>
             <div className="recipeFeedContainer">
+                <h2>Your Feed</h2>
                     {
                        recipes.map(r =>{
                           return(
                     
                         <div key={r.id} className="recipeCard">
-                            <Link onClick={()=>{props.history.push(`/recipe/${r.id}`)}}><p>{r.title}</p></Link>
-                            <p>By: <Link onClick={()=>{props.history.push(`/user/${r.author.user.id}`)}}>{r.author.user.username}</Link></p>
-                            <img src={r.picture}/>
+                            <img className="recipeCardImage" src={r.picture}/>
+                            <div className="recipeFeedInfoContainer">
+                                <Link className="recipeCardTitle" onClick={()=>{props.history.push(`/recipe/${r.id}`)}}><h4>{r.title}</h4></Link>
+                                <Link className="recipeCardAuthor" onClick={()=>{props.history.push(`/user/${r.author.user.id}`)}}>{r.author.user.username}</Link>
+                            </div>
                         </div>
                     
                           ) 
-                       })
+                       }).reverse()
                     }
             </div>
 

@@ -26,9 +26,12 @@ export const ApplicationViews = () => {
             </RecipeProvider>
 
 
-            <CategoryProvider>
-                <RecipeProvider>
-                    <Route exact path="/recipe/new" render={(props) => {
+
+            <RecipeProvider>        
+            <FavoritesProvider>
+                <CategoryProvider>
+                <UserProvider>
+                <Route exact path="/recipe/new" render={(props) => {
                         return <>
                             <RecipeForm {...props} id="RecipeForm" />
                         </>
@@ -38,12 +41,6 @@ export const ApplicationViews = () => {
                             <RecipeForm {...props} id="RecipeForm" />
                         </>
                     }} />
-                </RecipeProvider>
-            </CategoryProvider>
-
-            <RecipeProvider>        
-            <FavoritesProvider>
-                <UserProvider>
                     <Route exact path="/user/:id(\d+)" render={(props) => {
                         return <>
                             <ProfileInfo {...props} />
@@ -62,6 +59,7 @@ export const ApplicationViews = () => {
                         </>
                     }} />
                 </UserProvider>
+                </CategoryProvider>
             </FavoritesProvider>
             </RecipeProvider>
 
