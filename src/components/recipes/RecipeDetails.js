@@ -17,16 +17,14 @@ export const RecipeDetails = (props) => {
     const [favId, setFavId] = useState()
 
     useEffect(() => {
-        
+        getSingleRecipe(props.match.params.recipe_id)
         getUserFavorites(props.match.params.recipe_id)
         .then(()=>{
             favorites.map(f => {
                 if (f.recipe.id === parseInt(props.match.params.recipe_id)) {
-                    setButtonState(true)
                     setFavId(f.id)
-                } else {
-                    setButtonState(false)
-                }
+                    setButtonState(true)
+                } 
     
             })
         })
@@ -34,9 +32,7 @@ export const RecipeDetails = (props) => {
 
     }, [])
 
-    useEffect(()=>{
-        getSingleRecipe(props.match.params.recipe_id)
-    },[])
+   
 
 
 
@@ -47,7 +43,7 @@ export const RecipeDetails = (props) => {
     }
 
 
-    console.log(favId)
+    
 
 
     return (
