@@ -3,12 +3,18 @@
 
 
 
+
+
 /* Recipe feed css */
 
 .recipeFeedContainer, .recipeInfoContainer{
-    margin-top: 5rem;
     overflow-y: scroll;
+
     
+}
+
+.recipeInfoContainer{
+    margin-top:5rem;
 }
 
 .recipeCard{
@@ -31,7 +37,6 @@ object-fit: cover;
     display: flex;
     flex-direction: column;
     width: 100%;
-    
     background-color: rgba(43, 45, 47, .9);
     text-align: end;
     word-wrap: break-word;

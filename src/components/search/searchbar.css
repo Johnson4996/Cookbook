@@ -1,8 +1,16 @@
 
-
+.switch{
+	margin-top:1rem;
+	
+}
+.searchSettingsContainer{
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
+}
 .container{
-    margin-top: 8rem;
-    display: flex;
+	display: flex;
+	margin-top:6rem;
     justify-content: center;
 }
 

@@ -1,15 +1,20 @@
 import React, {useContext} from "react"
 import { Link } from "react-router-dom"
 import { RecipeContext } from "../recipes/RecipeProvider"
+import { SpoonContext } from "../recipes/SpoonacularProvider"
 
 
 
-export const SearchResults = (props) =>{
+export const SearchResults = (props,toggleState) =>{
 
     const {searchResults} = useContext(RecipeContext)
+    const {spoonRecipes} = useContext(SpoonContext)
+
+    console.log(toggleState)
 
     return(
         <div className="searchResultsContainer">
+
     {
                        searchResults.map(r =>{
                           return(

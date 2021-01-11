@@ -10,6 +10,9 @@ import { FavoritesProvider } from "./favorites/FavoritesProvider"
 import { RecipeDetails } from "./recipes/RecipeDetails"
 import { SearchBar } from "./search/SearchBar"
 import { SearchResults } from "./search/SearchResults"
+import { AppTab } from "./apptabs/AppTab"
+import {SpoonacularProvider} from "./recipes/SpoonacularProvider"
+
 
 
 
@@ -20,13 +23,13 @@ export const ApplicationViews = () => {
             <RecipeProvider>
                 <Route exact path="/" render={(props) => {
                     return <>
-                        <RecipeFeed {...props} />
+                        <AppTab {...props}/>
                     </>
                 }} />
             </RecipeProvider>
 
 
-
+            <SpoonacularProvider>
             <RecipeProvider>        
             <FavoritesProvider>
                 <CategoryProvider>
@@ -62,6 +65,7 @@ export const ApplicationViews = () => {
                 </CategoryProvider>
             </FavoritesProvider>
             </RecipeProvider>
+            </SpoonacularProvider>
 
             <Route path="/logout" render={(props) => {
                 localStorage.removeItem("cbuser")
