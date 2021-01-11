@@ -10,10 +10,13 @@
 .userLikedRecipesContainer{
     margin-top: 1rem;
     display: flex;
+    justify-content: space-between;
     overflow-x: scroll;
+    width: auto;
 
 }
 
 .userPostedRecipesContainer{
     margin-top: 4rem;
 }
+

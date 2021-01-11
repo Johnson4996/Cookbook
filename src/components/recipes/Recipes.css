@@ -21,6 +21,9 @@
 .recipeCardImage{
 max-width: 50%;
 height: inherit;
+width:207px;
+height:207px;
+object-fit: cover;
 
 }
 
@@ -62,6 +65,9 @@ height: inherit;
 
 .recipeTitleContainer{
     display: flex;
+    justify-content: space-between;
+    margin-left: 1rem;
+    margin-right: 2rem;
 }
 
 .favIconContainer{

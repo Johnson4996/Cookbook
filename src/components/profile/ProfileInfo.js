@@ -34,9 +34,6 @@ useEffect(()=> {
                 <div className="first__info">
                     <p>Name: {cbUser.user.first_name} {cbUser.user.last_name}</p>
                 </div>
-                <div>
-                    <p>Member Since: {cbUser.user.date_joined.substring(0,10)}</p>
-                </div>
                 <div className="user__bio">
                     <p>{cbUser.bio}</p>
                 </div>
@@ -45,7 +42,7 @@ useEffect(()=> {
                     {
                         favorites.map(f =>{
                             return(
-                                <div key={f.recipe.id} className="recipeCard">
+                                <div key={f.recipe.id} className="recipeCard profileRecipeCard">
                             <img className="recipeCardImage" src={f.recipe.picture} alt="recipe_image"/>
                             <div className="recipeFeedInfoContainer">
                                 <Link className="recipeCardTitle" onClick={()=>{props.history.push(`/recipe/${f.recipe.id}`)}}><h4>{f.recipe.title}</h4></Link>
