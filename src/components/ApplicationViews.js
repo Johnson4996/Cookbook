@@ -9,7 +9,6 @@ import { ProfileInfo } from "./profile/ProfileInfo"
 import { FavoritesProvider } from "./favorites/FavoritesProvider"
 import { RecipeDetails } from "./recipes/RecipeDetails"
 import { SearchBar } from "./search/SearchBar"
-import { SearchResults } from "./search/SearchResults"
 import { AppTab } from "./apptabs/AppTab"
 import {SpoonacularProvider} from "./recipes/SpoonacularProvider"
 
@@ -57,7 +56,7 @@ export const ApplicationViews = () => {
                     <Route exact path="/search" render={(props) => {
                         return <>
                             <SearchBar {...props} />
-                            <SearchResults {...props} />
+                          
 
                         </>
                     }} />

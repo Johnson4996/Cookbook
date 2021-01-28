@@ -5,7 +5,7 @@ export const SpoonContext = React.createContext()
 
 export const SpoonacularProvider = (props) =>{
 
-    const [spoonRecipes, setSpoonRecipes] = useState([])
+    const [spoonRecipes, setSpoonRecipes] = useState({"results":[{}]})
     const [singleSpoonRecipe, setSingleSpoonRecipe] = useState([])
 
 
@@ -17,9 +17,11 @@ export const SpoonacularProvider = (props) =>{
     }
 
     const getSingleSpoonRecipe = (recipe_id) =>{
-        return fetch(`/recipes/${recipe_id}/information?apiKey=e3c96f96dbcd47d2b8ab620107f82854`)
+        debugger
+        return fetch(`https://api.spoonacular.com/recipes/${recipe_id}/information?apiKey=e3c96f96dbcd47d2b8ab620107f82854`)
             .then(res => res.json())
-            .then(setSingleSpoonRecipe)
+            .then(res=> setSingleSpoonRecipe(res.results))
+          
     }
 
     return (

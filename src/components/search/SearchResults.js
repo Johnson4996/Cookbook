@@ -10,7 +10,7 @@ export const SearchResults = (props,toggleState) =>{
     const {searchResults} = useContext(RecipeContext)
     const {spoonRecipes} = useContext(SpoonContext)
 
-    console.log(toggleState)
+    console.log(spoonRecipes)
 
     return(
         <div className="searchResultsContainer">
